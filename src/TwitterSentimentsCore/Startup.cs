@@ -35,7 +35,7 @@ namespace TwitterSentimentsCore
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
+            services.AddDbContext<>();
             services.AddMvc();
         }
 
