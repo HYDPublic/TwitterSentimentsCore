@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Net;
+using CoreTweet;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using TwitterSentimentsCore.Models;
+using TwitterSentimentsCore.Twitter;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,7 +41,29 @@ namespace TwitterSentimentsCore.Controllers
             // Process, make API calls, add to DB
             if (ModelState.IsValid)
             {
-                request.Result = 0.0;
+                var wrapper = new CoreTweetWrapper();
+                var manager = new RequestManager();
+
+                var score = 0.0;
+
+                var tweetList = wrapper.GetUserTimeline(request.TwitterHandle, request.Count).Result;
+                var responses = manager.MakeRequest(tweetList.ToList()).Result;
+
+                if (responses != null)
+                {
+                    var json = (JObject)JsonConvert.DeserializeObject(responses);
+                    var documents = json.SelectToken("documents");
+
+                    // Access each document and sum the score token
+                    for (var i = 0; i < documents.Count(); i++)
+                    {
+                        var val = documents[i].SelectToken("score");
+                        score += Convert.ToDouble(val.ToString());
+                    }
+                }
+
+                request.Result = score / tweetList.Count;
+
                 db.Add(request);
                 db.SaveChanges();
                 return RedirectToAction("Index");

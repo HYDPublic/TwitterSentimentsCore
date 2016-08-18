@@ -9,6 +9,7 @@
 -nologo
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
 -out:"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\bin\Debug\netcoreapp1.0\TwitterSentimentsCore.dll"
+-r:"C:\Users\jaearle\.nuget\packages\CoreTweet\0.7.1.345\lib\netstandard1.5\CoreTweet.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
@@ -212,3 +213,5 @@
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Migrations\20160818165423_RequestsMigration.Designer.cs"
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Migrations\RequestDbContextModelSnapshot.cs"
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Models\Request.cs"
+"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Twitter\CoreTweetWrapper.cs"
+"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Twitter\RequestManager.cs"

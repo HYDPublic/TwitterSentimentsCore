@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "03d28f625ccf49985ce7e2e6f472c7746c049af5"
+    "signature": "0c59e02140030f85cebcfb91a678a206c9e6e36b"
   },
   "compilationOptions": {
     "defines": [
@@ -32,13 +32,34 @@
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Microsoft.EntityFrameworkCore": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
+          "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final",
+          "CoreTweet": "0.7.1.345"
         },
         "runtime": {
           "TwitterSentimentsCore.dll": {}
         },
         "compile": {
           "TwitterSentimentsCore.dll": {}
+        }
+      },
+      "CoreTweet/0.7.1.345": {
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Linq.Expressions": "4.1.0",
+          "System.Net.Http": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.5/CoreTweet.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.5/CoreTweet.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/2.1.0": {
@@ -3552,6 +3573,11 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CoreTweet/0.7.1.345": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+J1B5KbT1PUuPZENgKEdoxW3Mff5H5b/SbRfuHtEhDCmu/FTS9YKuzpS/ybafxffGntnHKYM7xU/B2UN4NQ70g=="
     },
     "Microsoft.ApplicationInsights/2.1.0": {
       "type": "package",

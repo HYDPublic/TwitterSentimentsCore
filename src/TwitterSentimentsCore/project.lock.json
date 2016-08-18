@@ -3,6 +3,27 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "CoreTweet/0.7.1.345": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Linq.Expressions": "4.1.0",
+          "System.Net.Http": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.5/CoreTweet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/CoreTweet.dll": {}
+        }
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -4165,6 +4186,35 @@
     }
   },
   "libraries": {
+    "CoreTweet/0.7.1.345": {
+      "sha512": "+J1B5KbT1PUuPZENgKEdoxW3Mff5H5b/SbRfuHtEhDCmu/FTS9YKuzpS/ybafxffGntnHKYM7xU/B2UN4NQ70g==",
+      "type": "package",
+      "path": "CoreTweet/0.7.1.345",
+      "files": [
+        "CoreTweet.0.7.1.345.nupkg.sha512",
+        "CoreTweet.nuspec",
+        "lib/monoandroid10/CoreTweet.dll",
+        "lib/monoandroid10/CoreTweet.xml",
+        "lib/monotouch10/CoreTweet.dll",
+        "lib/monotouch10/CoreTweet.xml",
+        "lib/net35/CoreTweet.dll",
+        "lib/net35/CoreTweet.xml",
+        "lib/net40/CoreTweet.dll",
+        "lib/net40/CoreTweet.xml",
+        "lib/net45/CoreTweet.dll",
+        "lib/net45/CoreTweet.xml",
+        "lib/netstandard1.1/CoreTweet.dll",
+        "lib/netstandard1.1/CoreTweet.xml",
+        "lib/netstandard1.5/CoreTweet.dll",
+        "lib/netstandard1.5/CoreTweet.xml",
+        "lib/portable-win81+wpa81/CoreTweet.dll",
+        "lib/portable-win81+wpa81/CoreTweet.xml",
+        "lib/portable45-net45+win8+wpa81/CoreTweet.dll",
+        "lib/portable45-net45+win8+wpa81/CoreTweet.xml",
+        "lib/xamarinios10/CoreTweet.dll",
+        "lib/xamarinios10/CoreTweet.xml"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "0vpr8Pn5HP0Bz8cCw9ADuXunkgUmX0QLLwaJrkNQcdTZQVxTkfvPTF3NAg5Y1orFSZrqNgDaAL+q6kN8G+eKiQ==",
       "type": "package",
@@ -10578,6 +10628,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "CoreTweet >= 0.7.1.345",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
