@@ -21,9 +21,11 @@ namespace TwitterSentimentsCore.Models
         [Display(Name = "Date Created")]
         public DateTime Timestamp { get; } = DateTime.Now;
     }
-
+    //https://docs.efproject.net/en/latest/platforms/aspnetcore/new-db.html
     public class RequestDbContext : DbContext
     {
+        public RequestDbContext(DbContextOptions<RequestDbContext> options) : base(options) { }
+
         public DbSet<Request> Requests { get; set; }
     }
 }
