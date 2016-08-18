@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Net;
 using TwitterSentimentsCore.Models;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -7,41 +9,87 @@ namespace TwitterSentimentsCore.Controllers
 {
     public class RequestsController : Controller
     {
+        public RequestDbContext db;
+
+        public RequestsController(RequestDbContext context)
+        {
+            db = context;
+        }
+
         // GET: /Requests/Index
         public IActionResult Index()
         {
-            return View();
+            return View(db.Requests.ToList());
         }
 
         // GET: /Requests/Create
         public IActionResult Create()
         {
-            return null;
+            return View();
         }
 
         // POST: /Requests/Create
         [HttpPost]
-        public IActionResult Create([Bind(include:"ID,TwitterHandle,Count,Result")] Request request)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Request request)
         {
-            return null;
+            // Process, make API calls, add to DB
+            if (ModelState.IsValid)
+            {
+                request.Result = 0.0;
+                db.Add(request);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
 
         //GET: /Requests/Details/5
         public IActionResult Details(int? id)
         {
-            return null;
+            if(id == null)
+            {
+                return Content(HttpStatusCode.BadRequest.ToString());
+            }
+
+            Request request = db.Requests.Single(r => r.Id == id);
+
+            if (request == null)
+            {
+                return View("Error");
+                //return HttpNotFound();
+            }
+            return View(request);
         }
 
         //GET: /Requests/Delete/5
         public IActionResult Delete(int? id)
         {
-            return null;
+            if (id == null)
+            {
+                return Content(HttpStatusCode.BadRequest.ToString());
+            }
+
+            Request request = db.Requests.Single(r => r.Id == id);
+
+            if (request == null)
+            {
+                return View("Error");
+                //return HttpNotFound();
+            }
+            return View(request);
         }
 
         //POST: /Requests/Delete/5
-        public IActionResult Delete(int id)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
         {
-            return null;
+            Request request = db.Requests.Single(r => r.Id == id);
+            db.Requests.Remove(request);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

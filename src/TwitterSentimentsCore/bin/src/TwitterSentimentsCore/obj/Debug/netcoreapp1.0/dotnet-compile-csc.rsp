@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\bin\Debug\netcoreapp1.0\TwitterSentimentsCore.dll"
+"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\bin\src\TwitterSentimentsCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\bin\src\TwitterSentimentsCore\bin\Debug\netcoreapp1.0\TwitterSentimentsCore.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
 -r:"C:\Users\jaearle\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
@@ -203,7 +203,7 @@
 -r:"C:\Users\jaearle\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\jaearle\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\jaearle\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\obj\Debug\netcoreapp1.0\TwitterSentimentsCoredotnet-compile.deps.json",TwitterSentimentsCore.deps.json
+-resource:"C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\bin\src\TwitterSentimentsCore\obj\Debug\netcoreapp1.0\TwitterSentimentsCoredotnet-compile.deps.json",TwitterSentimentsCore.deps.json
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Program.cs"
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Startup.cs"
 "C:\Users\jaearle\Documents\Code\TwitterSentimentsCore\src\TwitterSentimentsCore\Controllers\HomeController.cs"

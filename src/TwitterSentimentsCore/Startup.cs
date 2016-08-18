@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using TwitterSentimentsCore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TwitterSentimentsCore
 {
@@ -33,9 +31,11 @@ namespace TwitterSentimentsCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            const string connection = @"Server=(localdb)\mssqllocaldb;Database=TwitterSentimentsCore.Requests;Trusted_Connection=True;";
+            
             // Add framework services.
+            services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(connection));
             services.AddApplicationInsightsTelemetry(Configuration);
-            //services.AddDbContext<>();
             services.AddMvc();
         }
 

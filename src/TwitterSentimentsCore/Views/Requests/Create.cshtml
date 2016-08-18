@@ -1,0 +1,38 @@
+﻿@model TwitterSentimentsCore.Models.Request
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Make a Request</h2>
+
+<p>
+    Use the form below to make a request to the Twitter Sentiments web application. Simply specify
+    the twitter user, as well as how many of their tweets you would like analyzed.
+</p>
+
+<form asp-controller="Requests" asp-action="Create" method="post" class="form-horizontal" role="form">
+    <div class="form-horizontal">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="TwitterHandle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TwitterHandle" class="form-control"/>
+                <span asp-validation-for="TwitterHandle" class="text-danger"></span>
+            </div>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Count" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Count" class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
