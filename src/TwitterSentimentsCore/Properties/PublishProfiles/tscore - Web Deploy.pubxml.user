@@ -8,4 +8,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+6x2uQYO9kecm+wpPg3vZQAAAAACAAAAAAADZgAAwAAAABAAAAAEXpK+KCQ9Fmb3W9NFW1ySAAAAAASAAACgAAAAEAAAANCNa1VBZkLXCVHeOsLiYMGAAAAAcg4RIdvkYVE13AFGH4JB5F3QVa6yOGxxhUyim0mbs/fXppNxlxWsCHCy6vCQQ6BIm/xy0nNXUyMWyba/5/motBkH+GQVEfZ4Epdz9RShLBWAOsXa5UNxukDCB15e85OsPrMH8RpJGjNflDLzVjfYg5wHz8hkB9hti3g9Oe/H3NMUAAAAJ9CL0e7ykJsJvLkhGrwXfFUmpZY=</EncryptedPassword>
   </PropertyGroup>
+  <ItemGroup>
+    <EfMigrations Include="TwitterSentimentsCore.Models.RequestDbContext">
+      <Value>Server=tcp:twittersentiments.database.windows.net,1433;Initial Catalog=tscore;Persist Security Info=False;User ID=je11zi;Password=AdminPassword1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+    </EfMigrations>
+  </ItemGroup>
 </Project>

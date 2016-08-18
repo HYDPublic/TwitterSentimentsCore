@@ -34,7 +34,8 @@ namespace TwitterSentimentsCore
             const string connection = @"Server=(localdb)\mssqllocaldb;Database=TwitterSentimentsCore.Requests;Trusted_Connection=True;";
             
             // Add framework services.
-            services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(connection));
+            //services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(Configuration["Data:ConnectionStrings:DefaultConnection"]));
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
         }
