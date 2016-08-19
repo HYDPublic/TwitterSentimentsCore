@@ -4,6 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TwitterSentimentsCore.Models
 {
+
+    // TODO: request on single tweet
+    // TODO: request on textbox, let user enter anything
+    // TODO: sorting on count and results, maybe alphanumeric on twitter handle too
+    // TODO: check out CoreTweet to see if there are other cool things it can do
+
     public class Request
     {
         // Primary key

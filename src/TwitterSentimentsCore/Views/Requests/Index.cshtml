@@ -29,10 +29,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TwitterHandle)
+                @item.TwitterHandle
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Count)
+                @item.Count
             </td>
             <td class="data" id="data" value="@item.Result">
                 @{ var percent = Math.Round(item.Result*100, 2); }
@@ -41,8 +41,8 @@
             <td id="scale"></td>
             <td>
                 @*<a asp-controller="Requests" asp-action="Details"></a>*@
-                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                <a asp-controller="Requests" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Requests" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
     }
@@ -59,21 +59,21 @@
 
         // Convert value to Red -> Yellow -> Green gradient
         // Intervals of 12.5%
-        if(value > 0 && value < 0.125) {
+        if(value > 0 && value < 0.4) {
             p.style.backgroundColor = "#FF2828";
-        } else if (value >= 0.125 && value < 0.25) {
+        } else if (value >= 0.4 && value < 0.5) {
             p.style.backgroundColor = "#FF6030";
-        } else if (value >= 0.25 && value < 0.375) {
+        } else if (value >= 0.5 && value < 0.55) {
             p.style.backgroundColor = "#FF9E28";
-        } else if (value >= 0.375 && value < 0.5) {
+        } else if (value >= 0.55 && value < 0.6) {
             p.style.backgroundColor = "#FFBE28";
-        } else if (value >= 0.5 && value < 0.6) {
+        } else if (value >= 0.6 && value < 0.65) {
             p.style.backgroundColor = "#FFDB28";
-        } else if (value >= 0.6 && value < 0.70) {
+        } else if (value >= 0.65 && value < 0.75) {
             p.style.backgroundColor = "#FFFF28";
-        } else if (value >= 0.70 && value < 0.8) {
+        } else if (value >= 0.75 && value < 0.85) {
             p.style.backgroundColor = "#BBFF28";
-        } else if (value >= 0.8 && value < 1.0) {
+        } else if (value >= 0.85 && value < 1.0) {
             p.style.backgroundColor = "#42FF42";
         }
 
