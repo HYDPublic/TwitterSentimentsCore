@@ -24,6 +24,16 @@ namespace TwitterSentimentsCore.Controllers
         // GET: /Requests/Index
         public IActionResult Index()
         {
+            var thing = from req 
+                        in db.Requests
+                        where req.Count > 10
+                        select new
+                        {
+                            req.Id,
+                            req.TwitterHandle,
+                            req.Result
+                        };
+
             return View(db.Requests.ToList());
         }
 
