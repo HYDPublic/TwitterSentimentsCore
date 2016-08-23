@@ -10,6 +10,7 @@ namespace TwitterSentimentsCore.Models
     // TODO: sorting on count and results, maybe alphanumeric on twitter handle too
     // TODO: check out CoreTweet to see if there are other cool things it can do
     // TODO: update so instead of inserting requested count, it inserts the actual amount analyzed
+    // TODO: search stuff?
 
     public class Request
     {
