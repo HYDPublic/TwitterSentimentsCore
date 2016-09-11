@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <EfMigrations Include="TwitterSentimentsCore.Models.RequestDbContext">
-      <Value>Server=tcp:twittersentiments.database.windows.net,1433;Initial Catalog=tscore;Persist Security Info=False;User ID=je11zi;Password=AdminPassword1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
+      <Value>Server=tcp:twittersentiments.database.windows.net,1433;Initial Catalog=tscore;Persist Security Info=False;User ID=je11zi;Password=AdminPassword@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</Value>
     </EfMigrations>
   </ItemGroup>
 </Project>

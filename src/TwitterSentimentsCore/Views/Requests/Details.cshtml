@@ -47,29 +47,29 @@
     <a asp-controller="Requests" asp-action="Index">Back to List</a>
 </p>
 
-<div style="width: 100%; height: 500px; overflow-y: scroll; text-align: center;">
-    <div style="margin: auto;width:500px;">
-        @{
+@{
 
-            if (Model.TwitterHandle.StartsWith("@"))
-            {
-                var url = "https://twitter.com/" + Model.TwitterHandle;
+    if (Model.TwitterHandle.StartsWith("@"))
+    {
+        var url = "https://twitter.com/" + Model.TwitterHandle;
 
-                // Render a users embedded timeline
+        // Render a users embedded timeline
+        <div style="width: 100%; height: 500px; overflow-y: scroll; text-align: center;">
+            <div style="margin: auto;width:500px;">
                 <a class="twitter-timeline" href="@url">Tweets by @Model.TwitterHandle</a>
                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            }
-            else
-            {
-                //var url = "https://twitter.com/search?q=" + Html.Encode(Model.TwitterHandle);
+            </div>
+        </div>
+    }
+    else
+    {
+        //var url = "https://twitter.com/search?q=" + Html.Encode(Model.TwitterHandle);
 
-                // Render a users embedded timeline
-                @*<a class="twitter-timeline" href="@url">Tweets about @Model.TwitterHandle</a>*@
-                @*<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>*@
+        // Render a users embedded timeline
+        @*<a class="twitter-timeline" href="@url">Tweets about @Model.TwitterHandle</a>*@
+        @*<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>*@
 
-                @*<a class="twitter-timeline" href="@url" data-widget-id="774792014751604736">Tweets aboutt @Model.TwitterHandle</a>*@
-                @*<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>*@
-            }
-        }
-    </div>
-</div>
+        @*<a class="twitter-timeline" href="@url" data-widget-id="774792014751604736">Tweets aboutt @Model.TwitterHandle</a>*@
+        @*<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>*@
+    }
+}

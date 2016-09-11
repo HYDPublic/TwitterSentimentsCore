@@ -22,9 +22,31 @@ namespace TwitterSentimentsCore.Controllers
         }
 
         // GET: /Requests/Index
-        public IActionResult Index()
+        public IActionResult Index2()
         {
             return View(db.Requests.ToList());
+        }
+
+        public IActionResult Index(string SortOrder)
+        {
+            // No sort method specified.
+            //if (SortOrder == null) return View(db.Requests.ToList());
+
+            var requests = from r in db.Requests select r;
+
+            switch(SortOrder)
+            {
+                case "desc":
+                    ViewData.Add("sort", "desc");
+                    requests = requests.OrderByDescending(r => r.Result);
+                    break;
+                case "asc":
+                    ViewData.Add("sort", "asc");
+                    requests = requests.OrderBy(r => r.Result);
+                    break; 
+            }
+
+            return View(requests.ToList());
         }
 
         // GET: /Requests/CreateUserRequest

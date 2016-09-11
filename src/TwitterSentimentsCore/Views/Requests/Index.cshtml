@@ -4,6 +4,14 @@
 
 <p>
     <a asp-controller="Requests" asp-action="CreateUserRequest">Create New</a>
+
+    @{ 
+        if(ViewData.Values.Contains("asc") || ViewData.Values.Contains("desc"))
+        {
+            <span> | </span><a asp-controller="Requests" asp-action="Index">Reset Sort</a>
+        }
+    }
+
 </p>
 
 <table class="table">
@@ -15,7 +23,16 @@
             @Html.DisplayNameFor(model => model.Count)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Result)
+            @{
+                if (ViewData.Values.Contains("asc"))
+                {
+                    @Html.ActionLink("Score", "Index", new { SortOrder = "desc" });
+                }
+                else
+                {
+                    @Html.ActionLink("Score", "Index", new { SortOrder = "asc" });
+                }
+            }
         </th>
         <th>Scale</th>
         <th></th>
@@ -36,7 +53,12 @@
             </td>
             <td id="scale"></td>
             <td>
-                <a asp-controller="Requests" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                @{
+                    if (item.TwitterHandle.StartsWith("@"))
+                    {
+                        <a asp-controller="Requests" asp-action="Details" asp-route-id="@item.Id">Details</a><span> | </span>
+                    }
+                }
                 <a asp-controller="Requests" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
