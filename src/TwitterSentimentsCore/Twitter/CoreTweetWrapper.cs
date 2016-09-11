@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using CoreTweet;
 using CoreTweet.Core;
+using CoreTweet.Rest;
 
 namespace TwitterSentimentsCore.Twitter
 {
@@ -22,17 +24,19 @@ namespace TwitterSentimentsCore.Twitter
         // Return the text of the most recent status, given the user name
         public async Task<UserResponse> GetUserMostRecentStatus(string ScreenName)
         {
-            //var userResponse = await tokens.Users.ShowAsync(screen_name: ScreenName);
-
             return await tokens.Users.ShowAsync(screen_name: ScreenName); // need status text
-            //return tokens.Users.Show(new { screen_name = ScreenName }).Status.Text;
         }
 
         // Return the n most recent statuses, provided the user name and number of statuses wanted
         public async Task<ListedResponse<Status>> GetUserTimeline(string ScreenName, int Count)
         {
             return await tokens.Users.IncludedTokens.Statuses.UserTimelineAsync(screen_name: ScreenName, count: Count);
-            //return tokens.Users.IncludedTokens.Statuses.UserTimeline(new { screen_name = ScreenName, count = Count });
+        }
+
+        // Return tweets related to the specified query
+        public async Task<SearchResult> GetTweetsByTopic(string Query)
+        {
+            return await tokens.Search.TweetsAsync(q: Query);
         }
     }
 }

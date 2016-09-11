@@ -10,6 +10,8 @@ namespace TwitterSentimentsCore
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -23,24 +25,20 @@ namespace TwitterSentimentsCore
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
+
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            const string connection = @"Server=(localdb)\mssqllocaldb;Database=TwitterSentimentsCore.Requests;Trusted_Connection=True;";
-
             // Add framework services.
-            //services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<RequestDbContext>(options => options.UseSqlServer(Configuration["Data:ConnectionStrings:DefaultConnection"]));
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Configure the HTTP pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));

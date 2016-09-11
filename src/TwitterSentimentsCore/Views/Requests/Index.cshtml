@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<TwitterSentimentsCore.Models.Request>
 
-@{
-    ViewBag.Title = "Blogs";
-}
-
 <h2>Request History</h2>
 
 <p>
-    <a asp-controller="Requests" asp-action="Create">Create New</a>
+    <a asp-controller="Requests" asp-action="CreateUserRequest">Create New</a>
 </p>
 
 <table class="table">
@@ -40,7 +36,6 @@
             </td>
             <td id="scale"></td>
             <td>
-                @*<a asp-controller="Requests" asp-action="Details"></a>*@
                 <a asp-controller="Requests" asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-controller="Requests" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
@@ -69,11 +64,11 @@
             p.style.backgroundColor = "#FFBE28";
         } else if (value >= 0.6 && value < 0.65) {
             p.style.backgroundColor = "#FFDB28";
-        } else if (value >= 0.65 && value < 0.75) {
+        } else if (value >= 0.65 && value < 0.725) {
             p.style.backgroundColor = "#FFFF28";
-        } else if (value >= 0.75 && value < 0.85) {
+        } else if (value >= 0.725 && value < 0.80) {
             p.style.backgroundColor = "#BBFF28";
-        } else if (value >= 0.85 && value < 1.0) {
+        } else if (value >= 0.8 && value < 1.0) {
             p.style.backgroundColor = "#42FF42";
         }
 

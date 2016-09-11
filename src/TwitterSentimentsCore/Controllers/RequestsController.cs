@@ -24,21 +24,17 @@ namespace TwitterSentimentsCore.Controllers
         // GET: /Requests/Index
         public IActionResult Index()
         {
-            var thing = from req 
-                        in db.Requests
-                        where req.Count > 10
-                        select new
-                        {
-                            req.Id,
-                            req.TwitterHandle,
-                            req.Result
-                        };
-
             return View(db.Requests.ToList());
         }
 
-        // GET: /Requests/Create
-        public IActionResult Create()
+        // GET: /Requests/CreateUserRequest
+        public IActionResult CreateUserRequest()
+        {
+            return View();
+        }
+
+        // GET: /Requests/CreateTopicRequest
+        public IActionResult CreateTopicRequest()
         {
             return View();
         }
@@ -46,7 +42,7 @@ namespace TwitterSentimentsCore.Controllers
         // POST: /Requests/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Request request)
+        public IActionResult CreateUserRequest(Request request)
         {
             // Process, make API calls, add to DB
             if (ModelState.IsValid)
@@ -63,6 +59,54 @@ namespace TwitterSentimentsCore.Controllers
                 {
                     var json = (JObject)JsonConvert.DeserializeObject(responses);
                     var documents = json.SelectToken("documents");
+
+                    // Error in the request
+                    if(documents == null) return View("Error");
+
+                    // Access each document and sum the score token
+                    for (var i = 0; i < documents.Count(); i++)
+                    {
+                        var val = documents[i].SelectToken("score");
+                        score += Convert.ToDouble(val.ToString());
+                    }
+                }
+
+                request.Result = score / tweetList.Count;
+
+                db.Add(request);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        // POST: /Requests/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateTopicRequest(Request request)
+        {
+            // Process, make API calls, add to DB
+            if (ModelState.IsValid)
+            {
+                var wrapper = new CoreTweetWrapper();
+                var manager = new RequestManager();
+
+                var score = 0.0;
+
+                // code changes here
+                var tweetList = wrapper.GetTweetsByTopic(request.TwitterHandle).Result;
+
+                //var tweetList = wrapper.GetUserTimeline(request.Search, request.Count).Result;
+                var responses = manager.MakeRequest(tweetList.ToList()).Result;
+
+                if (responses != null)
+                {
+                    var json = (JObject)JsonConvert.DeserializeObject(responses);
+                    var documents = json.SelectToken("documents");
+
+                    // Error in the request
+                    if (documents == null) return View("Error");
 
                     // Access each document and sum the score token
                     for (var i = 0; i < documents.Count(); i++)

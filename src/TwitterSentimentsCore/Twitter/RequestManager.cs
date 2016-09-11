@@ -84,7 +84,7 @@ namespace TwitterSentimentsCore.Twitter
             // Add each status as a Json document 
             for (int i = 0; i < tweets.Count; i++)
             {
-                documents += AddDocument(tweets[i].Text, i);
+                documents += AddDocument(tweets[i].Text,i);
 
                 // Append a comma to each document if it is not the last.
                 documents += i < tweets.Count ? ", " : String.Empty;
@@ -97,7 +97,7 @@ namespace TwitterSentimentsCore.Twitter
         public string AddDocument(string text, int id)
         {
             // Strip quotation marks
-            text = text.Replace("\"", "");
+            text = text.Replace("\"", "").Replace("\n"," ");
 
             // Convert to ASCII for API request
             text = Encoding.ASCII.GetString(Encoding.UTF8.GetBytes(text));

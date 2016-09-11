@@ -31,8 +31,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Requests" asp-action="Index">Twitter Request History</a></li>
-                    <li><a asp-area="" asp-controller="Requests" asp-action="Create">Make Request</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Search <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Requests" asp-action="CreateUserRequest">Users</a></li>
+                            <li><a asp-area="" asp-controller="Requests" asp-action="CreateTopicRequest">Topics</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-area="" asp-controller="Requests" asp-action="Index">Request History</a></li>
                 </ul>
             </div>
         </div>

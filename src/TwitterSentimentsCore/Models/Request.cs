@@ -18,7 +18,7 @@ namespace TwitterSentimentsCore.Models
         public int Id { get; set; }
 
         // Form inputs
-        [Display(Name = "Twitter Handle")]
+        [Display(Name = "Search")]
         public string TwitterHandle { get; set; }
         public int Count { get; set; }
 
